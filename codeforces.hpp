@@ -33,6 +33,7 @@ std::vector<contest> get_future_contests() {
                               c["durationSeconds"], c["type"], c["phase"],
                               c["name"]);
     }
+    std::reverse(begin(contests), end(contests));
 
     return contests;
 }
