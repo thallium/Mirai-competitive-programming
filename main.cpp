@@ -8,9 +8,9 @@ class Main : public CPPPlugin {
     // 配置插件信息
     Main()
         : CPPPlugin(PluginConfig("mirai-cp", "Mirai Competitive Programming",
-                                 "0.0.1", "Thallium54",
+                                 "0.0.2", "Thallium54",
                                  "A QQ bot about competitve programming",
-                                 "Publish time")) {}
+                                 "2022")) {}
     void onEnable() override {
         // 监听
         // Event::processor.registerEvent<GroupMessageEvent>(
@@ -21,7 +21,8 @@ class Main : public CPPPlugin {
         Event::processor.registerEvent<PrivateMessageEvent>(
             [](PrivateMessageEvent e) {
                 if (e.message[0].type() == 0) {
-                    e.sender.sendMessage(e.message[0].get<PlainText>().content);
+                    // e.sender.sendMessage(e.message[0].get<PlainText>().content);
+                    Logger::logger.info(e.message[0].get<PlainText>().content.substr(0, 3));
                 }
             });
     }
