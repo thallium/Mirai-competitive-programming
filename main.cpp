@@ -28,7 +28,7 @@ class Main : public CPPPlugin {
                     if (content.size()<=12 && content.substr(10, 2) == "cf")  {
                         command::send_cf_contests(e);
                     } else {
-                        e.group.sendMessage("不支持的比赛平台！")
+                        e.group.sendMessage("不支持的比赛平台！");
                     }
                 }
             });
