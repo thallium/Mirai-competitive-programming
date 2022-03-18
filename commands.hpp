@@ -1,7 +1,6 @@
 #include "codeforces.hpp"
 #include <MiraiCP.hpp>
 #include <iomanip>
-#include <stringstream>
 
 namespace command {
 void help(MiraiCP::GroupMessageEvent &e) {
