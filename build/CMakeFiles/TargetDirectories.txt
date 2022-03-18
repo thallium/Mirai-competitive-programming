@@ -1,3 +1,0 @@
-/home/thallium/git/Mirai-competitive-programming/build/CMakeFiles/rebuild_cache.dir
-/home/thallium/git/Mirai-competitive-programming/build/CMakeFiles/edit_cache.dir
-/home/thallium/git/Mirai-competitive-programming/build/CMakeFiles/MiraiCP.dir
