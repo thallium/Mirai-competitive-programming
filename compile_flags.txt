@@ -1,0 +1,3 @@
+-std=c++17
+-I./single_include/MiraiCP/
+-I./single_include/
