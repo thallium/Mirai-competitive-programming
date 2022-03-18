@@ -1,12 +1,12 @@
-# MiraiCP-template
-> 留意和MiraiCP loader/plugin 的版本对应
-> 
-> 当前文件版本是 [![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/Nambers/MiraiCP?include_prereleases)](https://github.com/Nambers/MiraiCP/releases/) 
-> 
-> 如果要旧版去tag里找
+# Mirai-Competitive-Programming
 
-使用方法:
-- clone
-- Linux环境：执行`./export.sh`导出`JAVA_HOME`环境变量（Windows跳过这一步）
-- 通过cmake编译出库文件
-- 和MiraiCP loader/plugin 配合用(在loader/plugin的config.json里写路径, 见[MiraiCP文档](https://github.com/Nambers/MiraiCP/blob/main/README.md#32-%E5%90%AF%E5%8A%A8sdk))
+围绕算法竞赛的Mirai插件。基于[MiraiCP](https://github.com/Nambers/MiraiCP) SDK开发，受到[TLE](https://github.com/cheran-senthil/TLE)的启发，目标是实现TLE的部分功能。目前处于起步阶段，欢迎PR。
+
+## 目前功能：
+- 查Codeforces近期比赛
+
+## 安装
+
+见MiraiCP文档
+
+**目前只能在Linux(unix)服务器上运行，因为用了某些特有的函数**
