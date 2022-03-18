@@ -13,6 +13,7 @@ class Main : public CPPPlugin {
                                  "A QQ bot about competitve programming",
                                  "2022")) {}
     void onEnable() override {
+        setenv("TZ", "/usr/share/zoneinfo/Asia/Shanghai", 1);
         // 监听
         Event::processor.registerEvent<GroupMessageEvent>(
             [](GroupMessageEvent e) { 

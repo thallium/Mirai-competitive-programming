@@ -22,6 +22,8 @@ static httplib::Client cf("http://codeforces.com");
 
 std::vector<contest> get_future_contests() {
     auto res = cf.Get("/api/contest.list");
+    if (res->status != 200)
+        return {};
     auto body = json::parse(res->body);
     std::vector<contest> contests;
     if (body["status"] != "OK") return {};
