@@ -19,8 +19,10 @@ class Main : public CPPPlugin {
         //     });
 
         Event::processor.registerEvent<PrivateMessageEvent>(
-            [](PrivateMessageEvent e) { 
-                e.sender.sendMessage(e.message[0]);
+            [](PrivateMessageEvent e) {
+                if (e.message[0].type() == 0) {
+                    e.sender.sendMessage(e.message[0].get<PlainText>().content);
+                }
             });
     }
 
