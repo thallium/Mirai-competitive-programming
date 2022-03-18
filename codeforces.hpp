@@ -1,11 +1,11 @@
-#include <string>
-#include <vector>
 #include "httplib.h"
 #include "json.hpp"
 #include <iostream>
+#include <string>
+#include <vector>
 
 using namespace nlohmann;
-namespace Codeforces {
+namespace CF {
 
 struct contest {
     int id, startTimeSeconds, durationSeconds;
@@ -24,13 +24,14 @@ std::vector<contest> get_future_contests() {
     auto res = cf.Get("/api/contest.list");
     auto body = json::parse(res->body);
     std::vector<contest> contests;
-    if (body["status"]!="OK")
-        return {};
-    for (const auto& c : body["result"]) {
+    if (body["status"] != "OK") return {};
+    for (const auto &c : body["result"]) {
         if (c["phase"] != "BEFORE") break;
-        contests.emplace_back(c["id"], c["startTimeSeconds"], c["durationSeconds"], c["type"], c["phase"], c["name"]);
+        contests.emplace_back(c["id"], c["startTimeSeconds"],
+                              c["durationSeconds"], c["type"], c["phase"],
+                              c["name"]);
     }
-    
+
     return contests;
 }
 } // namespace Codeforces

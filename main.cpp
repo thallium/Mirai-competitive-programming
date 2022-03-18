@@ -1,5 +1,6 @@
 // MiraiCP依赖文件(只需要引入这一个)
 #include <MiraiCP.hpp>
+#include "commands.hpp"
 using namespace MiraiCP;
 
 // 插件实例
@@ -13,16 +14,15 @@ class Main : public CPPPlugin {
                                  "2022")) {}
     void onEnable() override {
         // 监听
-        // Event::processor.registerEvent<GroupMessageEvent>(
-        //     [](GroupMessageEvent e) { 
-        //         e.group.sendMessage(e.message);
-        //     });
-
-        Event::processor.registerEvent<PrivateMessageEvent>(
-            [](PrivateMessageEvent e) {
+        Event::processor.registerEvent<GroupMessageEvent>(
+            [](GroupMessageEvent e) { 
                 if (e.message[0].type() == 0) {
                     // e.sender.sendMessage(e.message[0].get<PlainText>().content);
-                    Logger::logger.info(e.message[0].get<PlainText>().content.substr(0, 3));
+                    const std::string& content = e.message[0].get<PlainText>().content;
+                    // Logger::logger.info(.substr(0, 3));
+                    if (content.substr(0, 9) == "查比赛") {
+                        command::send_cf_contests(e);
+                    }
                 }
             });
     }
