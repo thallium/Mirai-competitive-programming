@@ -1,11 +1,11 @@
 #include "codeforces.hpp"
 #include <MiraiCP.hpp>
 #include <iomanip>
-#include <stringstream>
 
 namespace command {
 void help(MiraiCP::GroupMessageEvent &e) {
-    e.group.sendMessage(R"(查比赛: 查询最近的比赛)");
+    e.group.sendMessage(R"(查比赛: 查询所有平台最近的比赛
+    查比赛 cf：查询Codeforces最近的比赛)");
 }
 
 std::string make_contest_message(const std::vector<CF::contest> &contests,
@@ -30,5 +30,10 @@ void send_cf_contests(MiraiCP::GroupMessageEvent &e) {
     e.group.sendMessage(contest_message);
 }
 
-void send_future_contests(MiraiCP::GroupMessageEvent &e) {}
+void send_future_contests(MiraiCP::GroupMessageEvent &e) {
+    auto contests = CF::get_future_contests();
+    std::string message = "近期各种比赛：\n";
+    message += make_contest_message(contests, "Codeforces:\n");
+    e.group.sendMessage(message);
+}
 } // namespace command
