@@ -7,6 +7,11 @@ add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/utf-8>")
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+add_compile_definitions(CPPHTTPLIB_OPENSSL_SUPPORT)
+link_libraries(ssl crypto)
+add_compile_options(-O2)
+# add_compile_options(-fsanitize=address)
+# add_link_options(-fsanitize=address)
 # 声明C++项目
 project(MiraiCP LANGUAGES CXX)
 # 寻找本地JNI文件
