@@ -19,7 +19,7 @@ struct contest : public common::contest {
           phase(phase_), common::contest(name_, startTime, duration) {}
 };
 
-static httplib::Client cf("http://codeforces.com");
+static httplib::Client cf("https://codeforces.com");
 
 std::vector<contest> get_future_contests() {
     auto res = cf.Get("/api/contest.list");
