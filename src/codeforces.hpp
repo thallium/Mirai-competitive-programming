@@ -1,29 +1,29 @@
+#pragma once
+#include "common.hpp"
 #include "httplib.h"
 #include "json.hpp"
 #include <iostream>
 #include <string>
 #include <vector>
 
-using namespace nlohmann;
 namespace CF {
+using namespace nlohmann;
 
-struct contest {
-    int id, startTimeSeconds, durationSeconds;
+struct contest : public common::contest {
+    int id;
     std::string type;
     std::string phase;
-    std::string name;
     contest(int id_, int startTime, int duration, std::string type_,
             std::string phase_, std::string name_)
-        : id(id_), startTimeSeconds(startTime), durationSeconds(duration),
-          type(type_), phase(phase_), name(name_) {}
+        : id(id_), type(type_),
+          phase(phase_), common::contest(name_, startTime, duration) {}
 };
 
-static httplib::Client cf("http://codeforces.com");
+static httplib::Client cf("https://codeforces.com");
 
 std::vector<contest> get_future_contests() {
     auto res = cf.Get("/api/contest.list");
-    if (res->status != 200)
-        return {};
+    if (res->status != 200) return {};
     auto body = json::parse(res->body);
     std::vector<contest> contests;
     if (body["status"] != "OK") return {};
@@ -37,4 +37,4 @@ std::vector<contest> get_future_contests() {
 
     return contests;
 }
-} // namespace Codeforces
+} // namespace CF
