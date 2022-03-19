@@ -27,6 +27,8 @@ class Main : public CPPPlugin {
                 } else if (content.substr(0, 10) == "查比赛 ") {
                     if (content.size()<=12 && content.substr(10, 2) == "cf")  {
                         command::send_cf_contests(e);
+                    } else if (content.size()<=13 && content.substr(10, 3) == "atc") {
+                        command::send_atc_contests(e);
                     } else {
                         e.group.sendMessage("不支持的比赛平台！");
                     }
