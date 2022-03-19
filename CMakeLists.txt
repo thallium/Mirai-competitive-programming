@@ -22,6 +22,7 @@ if (JNI_FOUND)
             ${CMAKE_CURRENT_SOURCE_DIR}/single_include/3rd_include/utf8
             ${CMAKE_CURRENT_SOURCE_DIR}/single_include/3rd_include/utf8/utf8
             ${CMAKE_CURRENT_SOURCE_DIR}/single_include/MiraiCP
+            ${CMAKE_CURRENT_SOURCE_DIR}/src
             ${JAVA_INCLUDE_PATH}/
             ${JAVA_INCLUDE_PATH2}/
             )

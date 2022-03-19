@@ -1,3 +1,4 @@
+#pragma once
 #include "codeforces.hpp"
 #include <MiraiCP.hpp>
 #include <iomanip>

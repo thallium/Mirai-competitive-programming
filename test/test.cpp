@@ -1,10 +1,11 @@
-#include "../codeforces.hpp"
+#include "codeforces.hpp"
+#include "atcoder.hpp"
 #include <iostream>
 #include <ctime>
 #include <chrono>
 #include <iomanip>
 
-int main() {
+void test_cf_time() {
     setenv("TZ", "/usr/share/zoneinfo/Asia/Shanghai", 1);
 
     auto contests = CF::get_future_contests();
@@ -19,5 +20,13 @@ int main() {
         res += ss.str();
     }
     std::cout << res;
+}
+
+void test_atc() {
+    atc::get_future_contests();
+}
+
+int main() {
+    test_atc();
     return 0;
 }
