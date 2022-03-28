@@ -3,7 +3,7 @@
 围绕算法竞赛的Mirai插件。基于[MiraiCP](https://github.com/Nambers/MiraiCP) SDK开发，受到[TLE](https://github.com/cheran-senthil/TLE)的启发，目标是实现TLE的部分功能。目前处于起步阶段，欢迎PR。
 
 ## 目前功能：
-- 查Codeforces近期比赛
+- 查Codeforces/AtCoder近期比赛
 
 ## 安装
 
